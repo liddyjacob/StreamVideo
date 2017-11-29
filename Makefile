@@ -30,7 +30,7 @@ Video.o: Video.cpp Video.hpp
 Video_t : Video_t.o Video.o
 	$(GCC) $^ -o $@
 
-Video_t.o: Video_t.cpp Video.hpp
+Video_t.o: Video_t.cpp Video.hpp catch.hpp
 	$(GCC) $(CFLAGS) -c $<
 
 # Stream
@@ -40,7 +40,7 @@ Stream.o: Stream.cpp Stream.hpp Video.hpp
 Stream_t : Stream_t.o Stream.o Video.o
 	$(GCC) $^ -o $@
 
-Stream_t.o: Stream_t.cpp Stream.hpp
+Stream_t.o: Stream_t.cpp Stream.hpp catch.hpp
 	$(GCC) $(CFLAGS) -c $<
 
 # Account
@@ -50,8 +50,12 @@ Account.o: Account.cpp Account.hpp Video.hpp Stream.hpp
 Account_t : Account_t.o Account.o Stream.o Video.o
 	$(GCC) $^ -o $@
 
-Account_t.o: Account_t.cpp Account.hpp
+Account_t.o: Account_t.cpp Account.hpp catch.hpp
 	$(GCC) $(CFLAGS) -c $<
+
+# Note: is not part of clean
+catch.hpp :
+	curl -L -O https://github.com/catchorg/Catch2/releases/download/v2.0.1/catch.hpp
 
 # clean
 .PHONY : clean
@@ -65,6 +69,6 @@ cleanobjects :
 # unit testing
 .PHONY : test
 test : Video_t Stream_t Account_t
-	@./Video_t
-	@./Stream_t
-	@./Account_t
+	./Video_t
+	./Stream_t
+	./Account_t
