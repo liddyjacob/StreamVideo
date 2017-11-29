@@ -4,25 +4,14 @@
   Test program for class Account
 */
 
-#include <iostream>
-#include <cassert>
-#include <string>
+#define CATCH_CONFIG_MAIN
+#include "catch.hpp"
 
 #include "Account.hpp"
 
-int main() {
+TEST_CASE( "No streaming", "[Account]" ) {
+	Account customer("Fred");
 
-    // no streaming
-    {
-        Account customer("Fred");
-
-        assert(customer.getName() == "Fred");
-
-        // test using literal string
-        assert(customer.data() == "");
-    }
-
-    // TODO: Add test cases
-    
-    return 0;
+	REQUIRE(customer.getName() == "Fred");
+	REQUIRE(customer.data() == "");
 }

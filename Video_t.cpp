@@ -4,13 +4,11 @@
   Test program for class Video
 */
 
-#include <cassert>
+#define CATCH_CONFIG_MAIN
+#include "catch.hpp"
 
 #include "Video.hpp"
 
-int main() {
+TEST_CASE( "NOP", "[Video]" ) {
 
-	// TODO: Add test cases
-	
-	return 0;
 }

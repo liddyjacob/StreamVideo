@@ -4,13 +4,11 @@
   Test program for class Stream
 */
 
-#include <cassert>
+#define CATCH_CONFIG_MAIN
+#include "catch.hpp"
 
 #include "Stream.hpp"
 
-int main() {
+TEST_CASE( "NOP", "[Stream]" ) {
 
-    // TODO: Add test cases
-
-    return 0;
 }

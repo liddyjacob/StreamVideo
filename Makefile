@@ -7,7 +7,7 @@ TOBJS=Video_t.o Stream_t.o Account_t.o
 EXE=StreamingActivity Video_t Stream_t Account_t
 
 GCC= g++
-CFLAGS=-Wall
+CFLAGS=-Wall -std=c++11
 
 .PHONY : all
 all : $(EXE) test
