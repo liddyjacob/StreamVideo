@@ -42,7 +42,7 @@ int Video::getEpisodes() const {
 	if (type == Video::MOVIE)
 		return 0;
 
-    return episodes;
+  return episodes;
 }
 
 // set video length

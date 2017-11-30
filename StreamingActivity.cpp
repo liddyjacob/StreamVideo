@@ -32,6 +32,7 @@ int main() {
         	type = Video::TVSHOW;
         else if (stype == "ORIGINAL")
         	type = Video::ORIGINAL;
+        // ignore any unkown types
         else
         	continue;
 

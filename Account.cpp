@@ -56,7 +56,7 @@ std::string Account::report() const {
         // stream counts and originals
         int streamCount = 0;
         int originals = 0;
-        switch(it->getVideo().getType()) {
+        switch (it->getVideo().getType()) {
 
             // for movies, the stream count is the number of hours, with a minimum of 1
             case Video::MOVIE:
@@ -114,7 +114,7 @@ std::string Account::data() const {
     	output << name << ',';
 
     	// stream type
-        switch(it->getVideo().getType()) {
+        switch (it->getVideo().getType()) {
 
             // for movies, the stream count is the number of hours, with a minimum of 1
             case Video::MOVIE:
@@ -141,7 +141,7 @@ std::string Account::data() const {
 
         // stream counts
         output << ',';
-        switch(it->getVideo().getType()) {
+        switch (it->getVideo().getType()) {
 
             // for movies, the stream count is the number of hours, with a minimum of 1
             case Video::MOVIE:
