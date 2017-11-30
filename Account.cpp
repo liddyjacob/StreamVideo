@@ -60,19 +60,19 @@ std::string Account::report() const {
 
             // for movies, the stream count is the number of hours, with a minimum of 1
             case Video::MOVIE:
-            streamCount += it->getOccurrences() * (it->getVideo().getHours() ? it->getVideo().getHours() : 1);
-            break;
+                streamCount += it->getOccurrences() * (it->getVideo().getHours() ? it->getVideo().getHours() : 1);
+                break;
 
             // for TV shows, the stream count is just the number of streams
             case Video::TVSHOW:
-            streamCount += it->getOccurrences();
-            break;
+                streamCount += it->getOccurrences();
+                break;
 
             // for TV shows, the stream count is just the number of streams
             case Video::ORIGINAL:
-            originals += it->getOccurrences();
-            streamCount += it->getOccurrences();
-            break;
+                originals += it->getOccurrences();
+                streamCount += it->getOccurrences();
+                break;
         }
 
         // stream counts for this video
@@ -110,27 +110,27 @@ std::string Account::data() const {
     // list of streams
     for (std::vector<Stream>::const_iterator it = streams.begin(); it != streams.end(); ++it) {
 
-    	// customer name
-    	output << name << ',';
+        // customer name
+        output << name << ',';
 
-    	// stream type
+        // stream type
         switch (it->getVideo().getType()) {
 
             // for movies, the stream count is the number of hours, with a minimum of 1
             case Video::MOVIE:
-            output << "MOVIE";
-            break;
+                output << "MOVIE";
+                break;
 
             // for TV shows, the stream count is just the number of streams
             case Video::TVSHOW:
-            output << "TVSHOW";
-            break;
+                output << "TVSHOW";
+                break;
 
             // for TV shows, the stream count is just the number of streams
             case Video::ORIGINAL:
-            output << "ORIGINAL";
-            break;
-        }    	
+                output << "ORIGINAL";
+                break;
+        }       
 
         // stream title
         output << ',' << it->getVideo().getTitle();
@@ -145,13 +145,13 @@ std::string Account::data() const {
 
             // for movies, the stream count is the number of hours, with a minimum of 1
             case Video::MOVIE:
-            output << (it->getOccurrences() * (it->getVideo().getHours() ? it->getVideo().getHours() : 1));
-            break;
+                output << (it->getOccurrences() * (it->getVideo().getHours() ? it->getVideo().getHours() : 1));
+                break;
 
             // all others are just the number of occurrences
             default:
-            output << it->getOccurrences();
-            break;
+                output << it->getOccurrences();
+                break;
         }
 
         output << '\n';

@@ -10,8 +10,9 @@
 #include "Account.hpp"
 
 TEST_CASE( "No streaming", "[Account]" ) {
-	Account customer("Fred");
 
-	REQUIRE(customer.getName() == "Fred");
-	REQUIRE(customer.data() == "");
+    Account customer("Fred");
+
+    REQUIRE(customer.getName() == "Fred");
+    REQUIRE(customer.data() == "");
 }

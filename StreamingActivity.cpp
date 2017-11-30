@@ -27,14 +27,14 @@ int main() {
         std::string stype;
         std::getline(sline, stype, ',');
         if (stype == "MOVIE")
-        	type = Video::MOVIE;
+                type = Video::MOVIE;
         else if (stype == "TVSHOW")
-        	type = Video::TVSHOW;
+                type = Video::TVSHOW;
         else if (stype == "ORIGINAL")
-        	type = Video::ORIGINAL;
+                type = Video::ORIGINAL;
         // ignore any unkown types
         else
-        	continue;
+                continue;
 
         // video title
         std::string title;

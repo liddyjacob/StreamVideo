@@ -38,16 +38,16 @@ int Video::getMinutes() const {
 // number of episodes
 int Video::getEpisodes() const {
 
-	// special case as movies do not have episodes
-	if (type == Video::MOVIE)
-		return 0;
+    // special case as movies do not have episodes
+    if (type == Video::MOVIE)
+        return 0;
 
-  return episodes;
+    return episodes;
 }
 
 // set video length
 void Video::setLength(int hours, int minutes) {
 
-	this->hours = hours;
-	this->minutes = minutes;
+    this->hours = hours;
+    this->minutes = minutes;
 }

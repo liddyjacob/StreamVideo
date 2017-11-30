@@ -32,7 +32,7 @@ public:
     int getMinutes() const;
 
     // number of episodes
-	int getEpisodes() const;
+    int getEpisodes() const;
 
     // set video length
     void setLength(int hours, int minutes);

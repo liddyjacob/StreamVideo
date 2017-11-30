@@ -28,7 +28,7 @@ public:
     std::string report() const;
 
     // account data in CSV
-	std::string data() const;
+    std::string data() const;
 
 private:
     std::string name;
