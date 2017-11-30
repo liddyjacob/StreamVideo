@@ -17,7 +17,7 @@ int Stream::getOccurrences() const {
     return occurrences;
 }
 
-// movie rented
+// video rented
 const Video& Stream::getVideo() const {
 
     return video;
