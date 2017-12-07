@@ -16,6 +16,8 @@ public:
     static const int TVSHOW     = 1;
     static const int ORIGINAL   = 2;
 
+    // TODO: We should definately change this primative obsession
+    //         code smell.
     // constructor
     Video(const std::string& title, int type, int hours, int minutes, int episodes);
 
