@@ -50,13 +50,16 @@ private:
     int episodes;
 };
 
-class VideoParams{
-public:
-  VideoParams(){}
+struct VideoParams{
+  VideoParams()
+    : title(""), type(-1), hours(0),minutes(0),episodes(0)
+  { }
 
-
-private:
-
+  std::string title;
+  int type;
+  int hours;
+  int minutes;
+  int episodes;
 };
 
 #endif

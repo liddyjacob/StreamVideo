@@ -12,7 +12,9 @@ Video::Video(const std::string& title, int type, int hours, int minutes, int epi
 { }
 
 Video::Video(const VideoParams& vp)
-  : title("")
+  : title(vp.title), type(vp.type)
+    ,hours(vp.hours), minutes(vp.minutes)
+    ,episodes(vp.episodes)
 { }
 
 
