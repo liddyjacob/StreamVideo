@@ -16,3 +16,4 @@ TEST_CASE( "No streaming", "[Account]" ) {
     REQUIRE(customer.getName() == "Fred");
     REQUIRE(customer.data() == "");
 }
+
