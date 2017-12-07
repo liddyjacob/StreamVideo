@@ -12,3 +12,9 @@
 TEST_CASE( "NOP", "[Video]" ) {
 
 }
+
+TEST_CASE("Video Initialization", "[Video]"){
+  VideoParams vp;
+  Video v(vp);
+
+}
