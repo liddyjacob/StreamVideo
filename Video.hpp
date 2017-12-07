@@ -9,6 +9,8 @@
 
 #include <string>
 
+class VideoParams;
+
 class Video {
 public:
 
@@ -20,6 +22,7 @@ public:
     //         code smell.
     // constructor
     Video(const std::string& title, int type, int hours, int minutes, int episodes);
+    Video(const VideoParams& vp);
 
     // video title
     const std::string& getTitle() const;
@@ -45,6 +48,15 @@ private:
     int hours;
     int minutes;
     int episodes;
+};
+
+class VideoParams{
+public:
+  VideoParams(){}
+
+
+private:
+
 };
 
 #endif
