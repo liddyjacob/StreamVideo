@@ -17,3 +17,22 @@ TEST_CASE( "No streaming", "[Account]" ) {
     REQUIRE(customer.data() == "");
 }
 
+TEST_CASE( "Single Stream", "[Account]" ) {
+    Account customer("Fred");
+
+    // Create Video to create stream
+    VideoParams vp;
+    vp.title = "Star Wars Episode I";
+    vp.type = Video::MOVIE;
+    vp.hours = 2;
+    vp.minutes = 16;
+
+    Video v(vp);
+
+    // Create the Stream to be viewed by the Account
+    Stream s(v, 1);
+
+    customer.addStream(s);
+
+    REQUIRE(customer.getName() == "Fred");
+}
