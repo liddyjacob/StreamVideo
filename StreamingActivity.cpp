@@ -58,11 +58,18 @@ int main() {
         std::string sepisodes;
         std::getline(sline, sepisodes, ',');
         std::stringstream strepisodes(sepisodes);
-        int episodes;
+        int episodes; 
         strepisodes >> episodes;
 
+        VideoParams vp;
+        vp.title = title;
+        vp.type = type;
+        vp.hours = hours;
+        vp.minutes = minutes;
+        vp.episodes = episodes;
+
         // create our new video for this input line
-        videos.push_back(Video(title, type, hours, minutes, episodes));
+        videos.push_back(Video(vp));
     }
     invideo.close();
 
