@@ -54,3 +54,22 @@ TEST_CASE("Video Parameters -- TV series", "[Video]"){
   REQUIRE(v.getMinutes() == 50);
   REQUIRE(v.getEpisodes() == 10);
 }
+
+TEST_CASE("Video Parameters -- Original", "[Video]"){
+  VideoParams vp;
+
+  //Fargo the TV series.
+  vp.title = "Original Production";
+  vp.type  = Video::ORIGINAL;
+  vp.hours = 1;
+  vp.minutes = 0;
+  vp.episodes = 5;  
+
+  Video v(vp);
+
+  REQUIRE(v.getTitle() == "Original Production");
+  REQUIRE(v.getType() == 2);//Video::ORIGINAL);
+  REQUIRE(v.getHours() == 1);
+  REQUIRE(v.getMinutes() == 0);
+  REQUIRE(v.getEpisodes() == 5);
+}
