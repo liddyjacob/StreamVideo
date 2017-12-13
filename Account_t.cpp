@@ -35,5 +35,4 @@ TEST_CASE( "Single Stream", "[Account]" ) {
     customer.addStream(s);
 
     REQUIRE(customer.getName() == "Fred");
-    REQUIRE(customer.data() == "");
 }
