@@ -29,6 +29,9 @@ TEST_CASE( "Single Stream", "[Account]" ) {
 
     Video v(vp);
 
+    // Create the Stream to be viewed by the Account
+    Stream(v, 1);
+
     REQUIRE(customer.getName() == "Fred");
     REQUIRE(customer.data() == "");
 }
