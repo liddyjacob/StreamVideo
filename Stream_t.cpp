@@ -38,7 +38,7 @@ TEST_CASE( "Stream Parameters", "[Stream]" ) {
  
     REQUIRE(s.getOccurrences() == 0);
     REQUIRE(s.getVideo().getTitle() == "Test Pilot");
-    REQUIRE(s.getVideo().getType() == Video::MOVIE);
+    REQUIRE(s.getVideo().getType() == 0);
     REQUIRE(s.getVideo().getHours() == 1);
     REQUIRE(s.getVideo().getMinutes() == 58);
 }
