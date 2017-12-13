@@ -29,3 +29,4 @@
 *.app
 
 catch.hpp
+.vscode/settings.json

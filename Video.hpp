@@ -62,4 +62,16 @@ private:
   int episodes;
 };
 
+class MOVIE : public Video
+{
+};
+
+class TVSHOW : public Video
+{
+};
+
+class ORIGINAL : public Video
+{
+};
+
 #endif
