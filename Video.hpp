@@ -36,9 +36,6 @@ public:
     // length in minutes
     int getMinutes() const;
 
-    // number of episodes
-    int getEpisodes() const;
-
     // set video length
     void setLength(int hours, int minutes);
 
@@ -47,7 +44,6 @@ private:
     int type;
     int hours;
     int minutes;
-    int episodes;
 };
 
 struct VideoParams{
@@ -60,6 +56,26 @@ struct VideoParams{
   int hours;
   int minutes;
   int episodes;
+};
+
+class Movie : Video {};
+
+class TvShow : Video {
+    // Build upon the base of video and give TvShow the property of
+    // having an episode count
+    private:
+        int episodes;
+
+    public:
+        int getEpisodes() const;
+};
+
+class Original : Video {
+    private:
+        int episodes;
+
+    public:
+        int getEpisodes() const;
 };
 
 #endif
