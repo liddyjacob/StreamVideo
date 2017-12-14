@@ -80,10 +80,12 @@ int main() {
     Stream s1(videos[0], 3);
     Stream s2(videos[1], 1);
     Stream s3(videos[2], 2);
+    Stream s4(videos[3], 1);
 
     customer.addStream(s1);
     customer.addStream(s2);
     customer.addStream(s3);
+    customer.addStream(s4);
 
     // Output account streaming report
     std::cout << customer.report() << '\n';
