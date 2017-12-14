@@ -7,8 +7,8 @@
 #include "Video.hpp"
 
 // constructor
-Video::Video(const std::string& title, int type, int hours, int minutes, int episodes)
-    : title(title), type(type), hours(hours), minutes(minutes), episodes(episodes)
+Video::Video(const std::string& title, int hours, int minutes, int episodes)
+    : title(title), hours(hours), minutes(minutes), episodes(episodes)
 { }
 
 Video::Video(const VideoParams& vp)
@@ -42,19 +42,22 @@ int Video::getMinutes() const {
     return minutes;
 }
 
-// number of episodes
-int Video::getEpisodes() const {
-
-    // special case as movies do not have episodes
-    if (type == Video::MOVIE)
-        return 0;
-
-    return episodes;
-}
-
 // set video length
 void Video::setLength(int hours, int minutes) {
 
     this->hours = hours;
     this->minutes = minutes;
+}
+
+// Return the number of episodes for the TV Show
+int TvShow::getEpisodes() const {
+    return episodes;
+}
+
+// Return the number of episodes of an Original (if applicable)
+int Original::getEpisodes() const {
+    return episodes;
+}
+
+TvShow::TvShow(const std::string& title, int hours, int minutes, int episodes) {
 }
