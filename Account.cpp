@@ -39,10 +39,10 @@ std::string Account::report() const
     // stringstream to convert data
     std::ostringstream output;
 
-    // customer name
+    // print customer name
     output << "Stream Report for Account: " << getName() << '\n';
 
-    // list of streams
+    // print list of streams
     output << "Streams:" << '\n';
     int totalStreams = 0;
     int totalOriginals = 0;
@@ -74,14 +74,14 @@ std::string Account::report() const
             streamCount += it->getOccurrences();
             break;
 
-        // for TV shows, the stream count is just the number of streams
+        // for Originals, the stream count is just the number of streams
         case Video::ORIGINAL:
             originals += it->getOccurrences();
             streamCount += it->getOccurrences();
             break;
         }
 
-        // stream counts for this video
+        // print stream counts for this video
         std::ostringstream out_str_stream;
         output << "\n\t" << "Number of times watched: " << streamCount << "\n\n";
 
@@ -89,13 +89,13 @@ std::string Account::report() const
         totalOriginals += originals;
     }
 
-    // total stream counts
+    // print total stream counts
     output << "Total Stream Events: " << totalStreams << '\n';
 
-    // total non-original stream counts
+    // print total non-original stream counts
     output << "Non-Original Stream Events: " << (totalStreams - totalOriginals) << '\n';
 
-    // total time
+    // print total time
     int minutes = totalMinutes % 60;
     int hours = totalHours + totalMinutes / 60;
     output << "Total Time: " << hours << ":" << minutes << '\n';
@@ -103,7 +103,7 @@ std::string Account::report() const
     return output.str();
 }
 
-// account data in CSV
+// account data in CSV and Account name
 std::string Account::data() const
 {
 
@@ -117,24 +117,24 @@ std::string Account::data() const
     for (std::vector<Stream>::const_iterator it = streams.begin(); it != streams.end(); ++it)
     {
 
-        // customer name
+        // print customer name
         output << name << ',';
 
         // stream type
         switch (it->getVideo().getType())
         {
 
-        // for movies, the stream count is the number of hours, with a minimum of 1
+        // if type is MOVIE print MOVIE
         case Video::MOVIE:
             output << "MOVIE";
             break;
 
-        // for TV shows, the stream count is just the number of streams
+        // if type is TVSHOW print TVSHOW
         case Video::TVSHOW:
             output << "TVSHOW";
             break;
 
-        // for TV shows, the stream count is just the number of streams
+        // if type is ORIGINAL print ORIGINAL
         case Video::ORIGINAL:
             output << "ORIGINAL";
             break;
