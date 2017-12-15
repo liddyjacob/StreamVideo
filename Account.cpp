@@ -60,13 +60,15 @@ std::string Account::report() const
 
         // stream counts and originals
         int streamCount = 0;
+        int hourCount = 0;
         int originals = 0;
         switch (it->getVideo().getType())
         {
 
         // for movies, the stream count is the number of hours, with a minimum of 1
         case Video::MOVIE:
-            streamCount += it->getOccurrences() * (it->getVideo().getHours() ? it->getVideo().getHours() : 1);
+            streamCount += it->getOccurrences();
+            hourCount += it->getOccurrences() * (it->getVideo().getHours() ? it->getVideo().getHours() : 1);
             break;
 
         // for TV shows, the stream count is just the number of streams
@@ -83,7 +85,14 @@ std::string Account::report() const
 
         // print stream counts for this video
         std::ostringstream out_str_stream;
-        output << "\n\t" << "Number of times watched: " << streamCount << "\n\n";
+        output << "\n\t" << "Number of times watched: " << streamCount;
+
+        if(it->getVideo().getType() == 0)
+        {
+            output << "\n\tNumber of hours watched over " << streamCount << " sessions: " << hourCount;
+        }
+
+        output << "\n\n";
 
         totalStreams += streamCount;
         totalOriginals += originals;
@@ -116,9 +125,11 @@ std::string Account::data() const
     // print list of streams
     for (std::vector<Stream>::const_iterator it = streams.begin(); it != streams.end(); ++it)
     {
+        if(it == streams.begin())
+        output << "List of all Streams:";
 
         // print customer name
-        output << name << ',';
+        output << "\n\tAccount: " << name;
 
         // stream type
         switch (it->getVideo().getType())
@@ -126,45 +137,43 @@ std::string Account::data() const
 
         // if type is MOVIE print MOVIE
         case Video::MOVIE:
-            output << "MOVIE";
+            output << "\n\tType: Movie";
             break;
 
         // if type is TVSHOW print TVSHOW
         case Video::TVSHOW:
-            output << "TVSHOW";
+            output << "\n\tType: TV Show";
             break;
 
         // if type is ORIGINAL print ORIGINAL
         case Video::ORIGINAL:
-            output << "ORIGINAL";
+            output << "\n\tType: Original";
             break;
         }
 
         // print stream title
-        output << ',' << it->getVideo().getTitle();
+        output << "\n\tTitle: " << it->getVideo().getTitle();
 
-        // print stream hours and minutes
-        output << ',' << (it->getVideo().getHours() * it->getOccurrences());
-        output << ',' << (it->getVideo().getMinutes() * it->getOccurrences());
+
+        // print Total stream hours and minutes
+        output << "\n\tTotal view time: " << (it->getVideo().getHours() * it->getOccurrences()) << " Hours ";
+        output << (it->getVideo().getMinutes() * it->getOccurrences()) << " Minutes";
 
         // print stream counts
-        output << ',';
         switch (it->getVideo().getType())
         {
-
         // print stream count for movies, the stream count is the number of hours, with a minimum of 1
         case Video::MOVIE:
-            output << (it->getOccurrences() * (it->getVideo().getHours() ? it->getVideo().getHours() : 1));
+            output<< "\n\tNumber of times watched: " << it->getOccurrences();
+            output << "\n\tNumber of hours watched over " << it->getOccurrences() << " sessions: " << (it->getOccurrences() * (it->getVideo().getHours() ? it->getVideo().getHours() : 1));
             break;
 
         // all others just print the number of occurrences
         default:
-            output << it->getOccurrences();
+            output<< "\n\tNumber of times watched: " << it->getOccurrences();
             break;
         }
-
         output << '\n';
     }
-
     return output.str();
 }
