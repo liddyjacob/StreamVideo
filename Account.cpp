@@ -113,7 +113,7 @@ std::string Account::data() const
     // customer name
     std::string name = getName();
 
-    // list of streams
+    // print list of streams
     for (std::vector<Stream>::const_iterator it = streams.begin(); it != streams.end(); ++it)
     {
 
@@ -140,24 +140,24 @@ std::string Account::data() const
             break;
         }
 
-        // stream title
+        // print stream title
         output << ',' << it->getVideo().getTitle();
 
-        // stream hours and minutes
+        // print stream hours and minutes
         output << ',' << (it->getVideo().getHours() * it->getOccurrences());
         output << ',' << (it->getVideo().getMinutes() * it->getOccurrences());
 
-        // stream counts
+        // print stream counts
         output << ',';
         switch (it->getVideo().getType())
         {
 
-        // for movies, the stream count is the number of hours, with a minimum of 1
+        // print stream count for movies, the stream count is the number of hours, with a minimum of 1
         case Video::MOVIE:
             output << (it->getOccurrences() * (it->getVideo().getHours() ? it->getVideo().getHours() : 1));
             break;
 
-        // all others are just the number of occurrences
+        // all others just print the number of occurrences
         default:
             output << it->getOccurrences();
             break;
